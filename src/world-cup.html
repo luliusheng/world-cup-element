@@ -3,7 +3,6 @@
 
 <!-- Define your custom element -->
 <polymer-element name="world-cup" attributes="year">
-
     <template>
         <style>
             :host {
@@ -26,14 +25,18 @@
             '1950', '1954', '1958', '1962', '1966', '1970', '1974', '1978',
             '1982', '1986', '1990', '1994', '1998', '2002', '2006', '2010', '2014'
         ];
-
         Polymer('world-cup', {
             yearChanged: function() {
+                var flag=0; 	
                 for (var i = 0; i < supportedYears.length; i++) {
                     if (this.year === supportedYears[i]) {
                         this.style.backgroundImage = 'url(src/' + this.year + '.jpg)';
-                    }
+		        flag=1;
+                    }				   	            
                 }
+		if(flag!=1 && this.year >= 1950 && this.year <= 2014 ){
+   	                this.style.backgroundImage = 'url(src/bg.jpg)';
+		}
             }
         });
     </script>

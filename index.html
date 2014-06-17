@@ -2,20 +2,19 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>&lt;world-cup&gt;</title>
-
+    <title>World-Cup</title>
     <!-- Importing Web Component's Polyfill -->
     <script src="bower_components/platform/platform.js"></script>
-
     <!-- Importing Custom Elements -->
     <link rel="import" href="src/world-cup.html">
 </head>
 <body>
 
     <!-- Using Custom Elements -->
-    <world-cup year="2010"></world-cup>
+    <world-cup year="1997"></world-cup>
 
-    <input list="years" type="text" value="2010" oninput="document.querySelector('world-cup').year = this.value">
+    <input id="in" list="years" type="text" value="?" oninput="document.querySelector('world-cup').year = this.value">
+
 
     <datalist id="years"></datalist>
 
@@ -35,37 +34,37 @@
         }
 
         input {
-            background: rgba(255, 255, 255, .7);
-            border-radius: 6px;
-            border: 2px solid #f2f2f2;
-            top: 50px;
+            background: rgba(255, 255, 255, .8);
+            border-radius: 10px;
+            border: 3px solid #f2f2f2;
+            top: 80px;
             color: #34495e;
             font-size: 32px;
             height: 42px;
-            left: 50%;
-            margin-left: -125px;
-            padding: 8px 12px;
+            left: 80%;
+            margin-left: 25px;   #-125
+            padding: 8px 12px 8px 10px;
             position: absolute;
             text-align: center;
-            width: 200px;
-            padding-left: 50px;
+            width: 120px;
         }
     </style>
 
     <script>
+        <!--加载时执行,显示下拉提示的数字 -->
         (function () {
             var supportedYears = [
                 '1950', '1954', '1958', '1962', '1966', '1970', '1974', '1978',
-                '1982', '1986', '1990', '1994', '1998', '2002', '2006', '2010', '2014'
+                '1982', '1986', '1990', '1994', '1998', '2002', '2006', '2010', '2014','2013',
             ];
 
-            var options = '';
+            var options = ' ';
 
             for (var i = 0; i < supportedYears.length; i++) {
                 options += '<option value="' + supportedYears[i] + '">';
             }
 
-            document.getElementById('years').innerHTML = options;
+            document.getElementById('years').innerHTML = options;	 
         })();
     </script>
 
